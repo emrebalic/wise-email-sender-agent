@@ -10,7 +10,7 @@ email_from = os.getenv("EMAIL_FROM")
 email_to = os.getenv("EMAIL_TO")
 
 
-r = resend.Emails.send(
+response = resend.Emails.send(
     {
         "from": email_from,
         "to": email_to,
@@ -19,4 +19,5 @@ r = resend.Emails.send(
     }
 )
 
-print(r)
+
+print(response)
