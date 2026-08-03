@@ -1,9 +1,10 @@
 import os
 
 import resend
+from agents import function_tool
 from dotenv import load_dotenv
 
-from agents import historian_agent, literature_agent, philosopher_agent
+from writer_agents import historian_agent, literature_agent, philosopher_agent
 
 load_dotenv(override=True)
 
@@ -26,6 +27,7 @@ tool3 = literature_agent.as_tool(
 )
 
 
+@function_tool
 def send_email_tool(
     subject: str,
     text_body: str,

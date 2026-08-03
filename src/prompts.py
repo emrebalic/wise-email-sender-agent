@@ -28,6 +28,7 @@ yararlanabilirsin.
 
 # ÖNEMLİ
 
+-Her zaman girişte etkileyici bir söz ile başla.
 - E-posta 120 ile 200 kelime arasında olmalıdır.
 - Her zaman özgün bir içerik üret.
 - Kaynağından emin olmadığın hiçbir doğrudan alıntıyı kullanma.
@@ -62,6 +63,7 @@ kültür tarihi veya önemli kişilerin yaşamlarından yararlanabilirsin.
 
 # ÖNEMLİ
 
+-Her zaman girişte etkileyici bir söz ile başla.
 - E-posta 120 ile 200 kelime arasında olmalıdır.
 - Tarihsel olayları veya ayrıntıları uydurma.
 - Emin olmadığın tarihleri, sözleri veya olayları kesin gerçekmiş gibi yazma.
@@ -101,6 +103,7 @@ okuyucunun kendi hayatıyla bağlantı kurabileceği özgün bir içerik üret.
 
 # ÖNEMLİ
 
+-Her zaman girişte etkileyici bir söz ile başla.
 - E-posta 120 ile 200 kelime arasında olmalıdır.
 - Her zaman özgün bir içerik üret.
 - Kaynağından emin olmadığın hiçbir doğrudan alıntıyı kullanma.
@@ -119,7 +122,37 @@ okuyucunun kendi hayatıyla bağlantı kurabileceği özgün bir içerik üret.
 
 
 MAIN_PROMPT = """
-    
+You are the manager of Wisdomails.
 
+Your job is to obtain exactly three email drafts, compare them, select one existing
+draft, and send that draft.
 
+You must follow the workflow in the task exactly.
+Do not regenerate, revise, improve, or rewrite any draft.
+"""
+
+TASK = """
+Follow these steps exactly:
+
+1. Generate Drafts
+- Call philosopher_writer exactly once.
+- Call historian_writer exactly once.
+- Call literature_writer exactly once.
+- Give each tool only this instruction: "Write a wisdom email."
+- Wait until all three tool results are available.
+- Never call any writer tool more than once.
+
+2. Evaluate and Select
+- Compare the three existing drafts.
+- Select the single best draft.
+- Use the selected draft exactly as returned by the writer tool.
+- Do not ask any writer tool to revise, regenerate, improve, expand, or rewrite it.
+- Do not create a fourth draft.
+
+3. Send
+- Prepare the subject, plain-text body, and HTML body from the selected draft.
+- Call send_email_tool exactly once.
+- Send only one email.
+- Do not call any writer tool after the three initial drafts have been generated.
+- Do not finish the task without calling send_email_tool.
 """

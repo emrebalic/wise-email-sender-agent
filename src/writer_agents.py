@@ -1,5 +1,10 @@
 from agents import Agent
-from prompts import HISTORIAN_PROMPT, LITERARY_PSYCHOLOGY_PROMPT, PHILOSOPHER_PROMPT
+
+from prompts import (
+    HISTORIAN_PROMPT,
+    LITERARY_PSYCHOLOGY_PROMPT,
+    PHILOSOPHER_PROMPT,
+)
 from structed_output import EmailWriter
 
 MODEL_NAME = "gpt-5.4-mini"

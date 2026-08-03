@@ -1,6 +1,7 @@
 from pydantic import BaseModel, Field
 
 
+# for the output structure created a python class
 class EmailWriter(BaseModel):
     email_title: str = Field(description="The title of the email")
     email_body: str = Field(description="The body of the email")
@@ -12,6 +13,3 @@ class EmailWriter(BaseModel):
     )
     contains_quote: bool = Field(description="Whether the email contains quote or not")
     direct_quote: str = Field(description="The direct quote from the email")
-
-
-print(EmailWriter.model_json_schema())
