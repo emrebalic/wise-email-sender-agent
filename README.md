@@ -20,8 +20,6 @@ Implemented email delivery with both SMTP and Resend. I ultimately chose Resend 
 
 Overall, this project gave me a much better understanding of agent orchestration, tool calling, structured outputs, and designing reliable AI workflows. It also highlighted the trade-offs between deterministic software orchestration and autonomous LLM-driven decision making.
 
-bu kısım aynı şekilde kalsın devamında hangi toolları kullandığımıza , hangi writer toollarımız olduğuna ve onların içeriğinin ne olduğuna ve genel akışa da değin
-
 ## Tools & Workflow
 
 The project is built around a manager agent that orchestrates three specialized writer tools. Each writer focuses on generating a wisdom-inspired email from a different perspective.
